@@ -59,7 +59,7 @@ public class InventoryAppController {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("editedItem", edited);
         jsonObject.put("status", "Edited item saved successfully");
-        return new ResponseEntity<>(jsonObject, HttpStatus.CREATED);
+        return new ResponseEntity<>(jsonObject, HttpStatus.ACCEPTED);
     }
 
     // DELETE ITEM
@@ -72,7 +72,7 @@ public class InventoryAppController {
         itemMapper.delete(item.getIdItem());
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("status", "Item deleted successfully");
-        return new ResponseEntity<>(jsonObject, HttpStatus.CREATED);
+        return new ResponseEntity<>(jsonObject, HttpStatus.OK);
     }
 
     // ASSIGN/ALLOCATE INVENTORY TO STAFF
@@ -97,7 +97,7 @@ public class InventoryAppController {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("status", "Item allocated to user successfully");
-        return new ResponseEntity<>(jsonObject, HttpStatus.CREATED);
+        return new ResponseEntity<>(jsonObject, HttpStatus.OK);
     }
 
     // SHOW REPORT BY STAFF
@@ -121,7 +121,7 @@ public class InventoryAppController {
         }
         jsonObject.put("allInvReportByStaff", arrReport);
         jsonObject.put("status", "Retrieval success");
-        return new ResponseEntity<>(jsonObject, HttpStatus.CREATED);
+        return new ResponseEntity<>(jsonObject, HttpStatus.FOUND);
     }
 
     // SHOW REPORT BY ITEM
@@ -146,6 +146,6 @@ public class InventoryAppController {
         }
         jsonObject.put("allInvReportByItem", arrReport);
         jsonObject.put("status", "Retrieval success");
-        return new ResponseEntity<>(jsonObject, HttpStatus.CREATED);
+        return new ResponseEntity<>(jsonObject, HttpStatus.FOUND);
     }
 }
